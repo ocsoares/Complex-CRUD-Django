@@ -1,0 +1,60 @@
+[tool.pyright]
+include = ["user", "manage.py"]
+exclude = ["**/__pycache__", "**/migrations", ".venv"]
+
+# --- Ambiente ---
+pythonVersion = "3.11"
+venvPath = "."
+venv = ".venv"
+
+# --- Modo de checagem ---
+typeCheckingMode = "strict"
+
+# --- Relatórios rigorosos ---
+reportIncompatibleVariableOverride = false
+# reportUnknownArgumentType = false
+reportMissingTypeStubs = true
+
+reportMissingImports = true
+reportMissingTypeArgument = true
+reportUntypedFunctionDecorator = true
+reportUntypedClassDecorator = true
+reportUntypedBaseClass = true
+reportUnknownParameterType = true
+reportUnknownArgumentType = true
+reportUnknownMemberType = true
+reportUnknownVariableType = true
+reportUnknownLambdaType = true
+reportUntypedNamedTuple = true
+reportPrivateUsage = true
+
+# --- Inferência e análise ---
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+analyzeUnannotatedFunctions = true
+deprecateTypingAliases = true
+useLibraryCodeForTypes = true
+disableBytesTypePromotions = true
+
+# --- Integração com Django/DRF ---
+stubPath = ".venv/lib/python3.11/site-packages"
+extraPaths = ["core", "user"]
+
+# --- Saída ---
+verboseOutput = false
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "ANN"]
+ignore = []
+exclude = ["core", "manage.py"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]

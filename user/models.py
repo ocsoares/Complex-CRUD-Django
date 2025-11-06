@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 
+
 class User(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=400)
@@ -11,4 +12,4 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = 'Users'
+        verbose_name_plural = "Users"
