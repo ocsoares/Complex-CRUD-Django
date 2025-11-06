@@ -44,7 +44,6 @@ extraPaths = ["core", "user"]
 # --- Saída ---
 verboseOutput = false
 
-
 [tool.ruff]
 line-length = 88
 target-version = "py311"
@@ -52,9 +51,5 @@ fix = true
 
 [tool.ruff.lint]
 select = ["E", "F", "B", "I", "ANN"]
-ignore = []
+ignore = ["ANN201"]
 exclude = ["core", "manage.py"]
-
-[tool.black]
-line-length = 88
-target-version = ["py311"]
