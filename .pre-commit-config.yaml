@@ -10,5 +10,5 @@ repos:
     hooks:
       - id: ruff-check
         args: [ --fix ]
-        exclude: ^core/|manage.py
+        exclude: ^core/|manage.py|user/migrations
       - id: ruff-format

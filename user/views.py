@@ -1,7 +1,12 @@
+from typing import Any
 from uuid import UUID
 
 from rest_framework import generics
 from rest_framework.exceptions import NotFound
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+)
 
 from user.models import User
 from user.serializers import UserSerializer
@@ -11,6 +16,11 @@ from user.serializers import UserSerializer
 class UserListCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all().order_by("created_at")
     serializer_class = UserSerializer
+
+    def get_permissions(self) -> list[Any]:
+        if self.request.method == "POST":
+            return [AllowAny()]
+        return [IsAuthenticated()]
 
 
 # Route /user/<id> with GET, PUT, PATCH and DELETE methods
