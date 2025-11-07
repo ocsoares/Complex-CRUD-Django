@@ -6,11 +6,9 @@ repos:
         exclude: ^core/
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.4
+    rev: v0.14.3
     hooks:
       - id: ruff-check
-        additional_dependencies:
-          - django-types
-          - djangorestframework-types
         args: [ --fix ]
         exclude: ^core/|manage.py
+      - id: ruff-format
